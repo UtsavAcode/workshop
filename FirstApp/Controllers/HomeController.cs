@@ -13,6 +13,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
         var list = new List<StudentVm>(){
@@ -22,9 +23,21 @@ public class HomeController : Controller
         return View(list);
     }
 
+    public IActionResult Test(){
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
+    }
+
+    public IActionResult New(){
+        return View(new TestVm());
+    }
+    [HttpPost]
+
+    public IActionResult New(TestVm vm){
+        return Ok(vm);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -32,9 +45,5 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-    public IActionResult New ( TestVm vm)
-    {
-        
-        return Ok(vm);
-    }
+   
 }
