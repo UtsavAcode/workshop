@@ -15,7 +15,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var list = new List<StudentVm>(){
+            new StudentVm(){Id =1 , Name="One",Address="add1"},
+            new StudentVm(){Id =2, Name="Two",Address="add2"},
+        };
+        return View(list);
     }
 
     public IActionResult Privacy()
@@ -27,5 +31,10 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+    public IActionResult New ( TestVm vm)
+    {
+        
+        return Ok(vm);
     }
 }
