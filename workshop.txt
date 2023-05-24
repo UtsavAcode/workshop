@@ -1,0 +1,14 @@
+Step 1:
+start with command:
+"dotnet new mvc --name FirstApp" this will create a dot net app called FirstApp
+
+Step 2: 
+To make a html file and run it you goto Home controllers and make a function there that will be rendered in the browser.
+eg: Public IActionResult Test(){
+    return View();
+}
+then you goto Home and create a html file that you want to render eg:
+test.cshtml
+
+Step 3:
+To run the program you use the command "dotnet watch run"
