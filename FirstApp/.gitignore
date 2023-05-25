@@ -1,0 +1,5 @@
+bin/
+obj/
+appsetttings.Development.json
+.vscode/
+.idea/s
