@@ -1,0 +1,54 @@
+<script src="~/js/vue.js"></script>
+<div id="app">
+<span>{{message}}</span>
+    <input typr="text" v-model="name">
+    <span>{{name}}</span>
+
+<span>{{message}}</span>
+<table class="table">
+            <thead>
+                <tr>
+                    <td>ID</th>
+                    <td>Name</th>
+                    <td>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="items in list">
+                    <td>{{items.id}}</td>
+                    <td>{{items.name}}</td>
+                    <td>{{items.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+</div>
+@section Scripts
+
+{
+    <script>
+        $(()=>{
+            const app = Vue.createApp({
+                setup(){
+
+                    const message = "First view";
+                    const name = Vue.ref("");
+                    const list = Vue.ref([
+                    {id :1, name: "one",description:"des"}
+                    
+                    ]);
+                    return{
+                        message,
+                        name,
+                        list
+                    };
+                }
+            });
+            app.mount("#app");
+        });
+
+
+        
+    </script>
+
+}
